@@ -2,7 +2,7 @@ import os, json, time, yaml, subprocess
 from google import genai
 from google.genai import types
 
-client = genai.Client(api_key = "API_KEY")
+client = genai.Client(api_key = "")
 # pip install google-genai PyYAML pandas openpyxl numpy
 # python.exe -m pip install --upgrade pip
 
@@ -62,7 +62,7 @@ transcript_response = client.models.generate_content(
         temperature = 0.1,
         seed = 69,
         response_mime_type = "application/json",
-        thinking_config = types.ThinkingConfig(thinking_budget = -1), # 0 disable thinking, -1 dynamic thinking
+        thinking_config = types.ThinkingConfig(thinking_budget = 0), # 0 disable thinking, -1 dynamic thinking
     ),
   contents = [
     types.Part.from_bytes(
@@ -138,6 +138,7 @@ visual_system_prompt = visual_prompt["system_prompt"]
 print(f'uploading video file...')
 video_file = client.files.upload(file = output_video)
 # audio_file = client.files.upload(file=r"output.mp3")
+
 
 # Wait for file to be active (Good practice for videos)
 while video_file.state.name == "PROCESSING":
