@@ -10,7 +10,7 @@ with open(r"app_config.yaml", "r") as f:
 
 
 # --- CONFIGURATION (Keep only static setups here) ---
-API_KEY = "AIzaSyAv-haG7mM7BFP8nmirYpGuETyTD9p5LjU"  # Replace with actual key
+API_KEY = ""  # Replace with actual key
 model_size = "small.en"
 transcribe_model = WhisperModel(
     APP_CONFIG['whisper']['model_size'], 
