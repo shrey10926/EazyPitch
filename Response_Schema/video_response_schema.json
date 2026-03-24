@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "visual_analysis": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number",
+          "description": "Score between 1.0 and 10.0",
+          "nullable": true
+        },
+        "level": {
+          "type": "string",
+          "enum": ["excellent", "good", "average", "poor"]
+        },
+        "eye_contact_assessment": {
+          "type": "string"
+        },
+        "body_language_assessment": {
+          "type": "string"
+        },
+        "gestures_and_energy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "score",
+        "level",
+        "eye_contact_assessment",
+        "body_language_assessment",
+        "gestures_and_energy"
+      ]
+    },
+    "visual_summary": {
+      "type": "object",
+      "properties": {
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "coaching_tips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["strengths", "gaps", "coaching_tips"]
+    }
+  },
+  "required": ["visual_analysis", "visual_summary"]
+}

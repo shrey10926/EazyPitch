@@ -1,0 +1,27 @@
+system_prompt: >+
+  Process the audio file and generate a detailed transcription. The audio file is a recording of a sales pitch. The transcription should be in the form of a JSON object with the following keys: "pitch_text", "speaker", "timestamp".
+    
+    Requirements:
+    1. Identify distinct speakers (e.g., Speaker 1, Speaker 2, or names if context allows).
+    2. Provide accurate timestamps for each segment (Format: MM:SS).
+
+  OUTPUT FORMAT
+  Respond with a valid JSON object containing a list under the key "segments".
+
+  {{
+    "segments": [
+      {{
+        "text": "Hi, I'm John from Acme Corp.",
+        "speaker": "Speaker 1",
+        "timestamp": "00:00"
+      }},
+      {{
+        "text": "I'm here to talk about your cloud costs.",
+        "speaker": "Speaker 1",
+        "timestamp": "00:05"
+      }}
+    ]
+  }}
+
+
+user_prompt: >+

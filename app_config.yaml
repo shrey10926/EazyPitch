@@ -1,0 +1,22 @@
+api:
+  model_name: "gemini-2.5-flash-lite"
+  temperature: 0.1
+  timeout_seconds: 300
+  retry_delay: 10.0
+
+whisper:
+  model_size: "small.en"
+  device: "cpu"
+  compute_type: "int8"
+  beam_size: 4
+  temperature: 0.0
+  language: "en"
+  task: "transcribe"
+
+ffmpeg:
+  scale: "640:360"
+  fps: 5
+  preset: "ultrafast"
+
+video:
+  max_inline_size_mb: 14.0

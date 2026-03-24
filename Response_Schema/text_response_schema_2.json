@@ -1,0 +1,144 @@
+{
+  "type": "object",
+  "properties": {
+    "phase_1_context_analysis": {
+      "type": "object",
+      "properties": {
+        "reasoning_summary": {
+          "type": "string",
+          "description": "A very high-level summary of the context analysis and evaluation plan."
+        }
+      },
+      "required": ["reasoning_summary"]
+    },
+    "phase_2_detailed_evaluation": {
+      "type": "object",
+      "properties": {
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "topic": {
+                "type": "string",
+                "description": "The category or topic of the strength."
+              },
+              "details": {
+                "type": "string",
+                "description": "Detailed explanation of what went well."
+              }
+            },
+            "required": ["topic", "details"]
+          }
+        },
+        "areas_for_improvement": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "topic": {
+                "type": "string",
+                "description": "The category or topic of the flaw."
+              },
+              "details": {
+                "type": "string",
+                "description": "Detailed explanation of where the pitch fell short."
+              }
+            },
+            "required": ["topic", "details"]
+          }
+        },
+        "actionable_feedback": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "issue": {
+                "type": "string",
+                "description": "The specific issue being addressed."
+              },
+              "before_quote": {
+                "type": "string",
+                "description": "The original flawed quote from the transcript."
+              },
+              "after_rewrite": {
+                "type": "string",
+                "description": "The suggested rewrite to fix the mistake."
+              }
+            },
+            "required": ["issue", "before_quote", "after_rewrite"]
+          }
+        }
+      },
+      "required": ["strengths", "areas_for_improvement", "actionable_feedback"]
+    },
+    "phase_3_competency_scoring": {
+      "type": "object",
+      "properties": {
+        "context_alignment": {
+          "type": "object",
+          "properties": {
+            "score": {
+              "type": "string",
+              "enum": ["1", "2", "3", "4"]
+            },
+            "justification": {
+              "type": "string"
+            }
+          },
+          "required": ["score", "justification"]
+        },
+        "value_prop_and_outcomes": {
+          "type": "object",
+          "properties": {
+            "score": {
+              "type": "string",
+              "enum": ["1", "2", "3", "4"]
+            },
+            "justification": {
+              "type": "string"
+            }
+          },
+          "required": ["score", "justification"]
+        },
+        "structure_and_flow": {
+          "type": "object",
+          "properties": {
+            "score": {
+              "type": "string",
+              "enum": ["1", "2", "3", "4"]
+            },
+            "justification": {
+              "type": "string"
+            }
+          },
+          "required": ["score", "justification"]
+        },
+        "compliance_and_professionalism": {
+          "type": "object",
+          "properties": {
+            "score": {
+              "type": "string",
+              "enum": ["1", "2", "3", "4"]
+            },
+            "justification": {
+              "type": "string"
+            }
+          },
+          "required": ["score", "justification"]
+        }
+      },
+      "required": [
+        "context_alignment",
+        "value_prop_and_outcomes",
+        "structure_and_flow",
+        "compliance_and_professionalism"
+      ]
+    }
+  },
+  "required": [
+    "phase_1_context_analysis",
+    "phase_2_detailed_evaluation",
+    "phase_3_competency_scoring"
+  ]
+}

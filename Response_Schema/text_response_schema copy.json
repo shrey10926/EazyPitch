@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "properties": {
+    "strategic_analysis": {
+      "type": "object",
+      "properties": {
+        "persona_fit_score": {
+          "type": "number",
+          "description": "Score between 1.0 and 10.0",
+          "nullable": true
+        },
+        "pain_point_coverage": {
+          "type": "string",
+          "enum": ["good", "partial", "missing", "skipped"]
+        },
+        "feedback": {
+          "type": "string"
+        }
+      },
+      "required": ["persona_fit_score", "pain_point_coverage", "feedback"]
+    },
+    "compliance_check": {
+      "type": "object",
+      "properties": {
+        "passed": {
+          "type": "boolean"
+        },
+        "missing_mandatory_terms": {
+          "type": "array",
+          "items": { "type": "string" },
+          "nullable": true,
+          "description": "List of missing terms or null"
+        },
+        "used_forbidden_terms": {
+          "type": "array",
+          "items": { "type": "string" },
+          "nullable": true,
+          "description": "List of forbidden terms used or null"
+        },
+        "feedback": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "passed",
+        "missing_mandatory_terms",
+        "used_forbidden_terms",
+        "feedback"
+      ]
+    },
+    "structure_analysis": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number",
+          "description": "Score between 1.0 and 10.0",
+          "nullable": true
+        },
+        "level": {
+          "type": "string",
+          "enum": ["excellent", "good", "average", "poor"]
+        },
+        "feedback": {
+          "type": "string"
+        }
+      },
+      "required": ["score", "level", "feedback"]
+    },
+    "text_summary": {
+      "type": "object",
+      "properties": {
+        "overall_score": {
+          "type": "number",
+          "description": "Score between 1.0 and 10.0",
+          "nullable": true
+        },
+        "key_strengths": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "gaps_identified": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "coaching_tips": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": [
+        "overall_score",
+        "key_strengths",
+        "gaps_identified",
+        "coaching_tips"
+      ]
+    }
+  },
+  "required": [
+    "strategic_analysis",
+    "compliance_check",
+    "structure_analysis",
+    "text_summary"
+  ]
+}
